@@ -31,6 +31,8 @@ std::string Parser::parse_token() {
 	return "";
 };
 
+// TODO
+// prevent more undefined token input
 Expression Parser::parse_simple_expression() {
 	std::string token = this->parse_token();
 	if (token.empty())
@@ -67,6 +69,9 @@ unsigned char Parser::get_priority(std::string& token) const noexcept {
 	return 0;
 };
 
+// TODO
+// add more operations
+// prevent possible value overflow
 double Parser::eval(const Expression& e) const {
 	size_t args_size = e.get_args().size();
 	if (args_size == 2) {
