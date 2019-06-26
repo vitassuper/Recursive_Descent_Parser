@@ -68,7 +68,8 @@ unsigned char Parser::get_priority(std::string& token) const noexcept {
 };
 
 double Parser::eval(const Expression& e) const {
-	if (e.get_args().size() == 2) {
+	size_t args_size = e.get_args().size();
+	if (args_size == 2) {
 		double a = eval(e.get_args()[0]);
 		double b = eval(e.get_args()[1]);
 		if (e.get_token() == "+") return a + b;
@@ -79,7 +80,7 @@ double Parser::eval(const Expression& e) const {
 		if (e.get_token() == "mod") return static_cast<int>(a) % static_cast<int>(b);
 		throw std::runtime_error("Unknown binary operation");
 	};
-	if (e.get_args().size() == 1) {
+	if (args_size == 1) {
 		double a = eval(e.get_args()[0]);
 		if (e.get_token() == "+") return +a;
 		if (e.get_token() == "-") return -a;
@@ -87,7 +88,7 @@ double Parser::eval(const Expression& e) const {
 		if (e.get_token() == "cos") return cos(a);
 		throw std::runtime_error("Unknown unary operation");
 	};
-	if (e.get_args().size() == 0)
+	if (args_size == 0)
 		return strtod(e.get_token().c_str(), nullptr);
 	throw std::runtime_error("Unknown expression type");
 };
