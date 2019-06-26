@@ -79,7 +79,7 @@ double Parser::eval(const Expression& e) const {
 		if (e.get_token() == "*") return a * b;
 		if (e.get_token() == "/") return a / b;
 		if (e.get_token() == "**") return std::pow(a, b);
-		if (e.get_token() == "mod") static_cast<int>(a) % static_cast<int>(b);
+		if (e.get_token() == "mod") return static_cast<int>(a) % static_cast<int>(b);
 		throw std::runtime_error("Unknown binary operation");
 	};
 	if (e.get_args().size() == 1) {
