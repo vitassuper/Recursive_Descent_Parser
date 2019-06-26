@@ -1,10 +1,12 @@
 #pragma once
 #include "Expression.hpp"
 #include <cctype>
+#include <cmath>
 #include <algorithm>
+#include <stdexcept>
 class Parser {
 public:
-	explicit Parser(std::string input) : input(input), iter(0) { this->delete_spaces(); }
+	explicit Parser(std::string input);
 	double execute();
 	Expression parse();
 private:
@@ -15,6 +17,6 @@ private:
 	Expression parse_simple_expression();
 	std::string parse_token();
 	void delete_spaces();
-	unsigned int get_priority(std::string & token);
-	double eval(const Expression &e);
+	unsigned char get_priority(std::string& token) const noexcept;
+	double eval(const Expression& e) const;
 };

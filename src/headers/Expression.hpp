@@ -3,12 +3,13 @@
 #include <vector>
 class Expression {
 public:
-	Expression(std::string token) : token(token) {}
-	Expression(std::string token, Expression a) : token(token), args{ a } {}
-	Expression(std::string token, Expression a, Expression b) : token(token), args{ a,b } {}
-	std::string get_token() const;
-	std::vector<Expression>get_args() const;
+	explicit Expression(std::string token);
+	explicit Expression(std::string token, Expression a);
+	explicit Expression(std::string token, Expression a, Expression b);
+
+	std::string get_token() const noexcept;
+	std::vector<Expression>get_args() const noexcept;
 private:
 	std::string token;
-	std::vector<Expression>args;
+	std::vector<Expression> args;
 };
