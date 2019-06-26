@@ -7,7 +7,7 @@ int main() {
 		Parser math(std::string("2*(3+8)+20/2"));
 		std::cout << math.execute();
 	}
-	catch (std::runtime_error e) {
+	catch (std::runtime_error& e) {
 		std::cout << e.what();
 	}
 	system("pause");
