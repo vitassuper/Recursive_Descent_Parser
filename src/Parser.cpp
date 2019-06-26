@@ -22,13 +22,10 @@ std::string Parser::parse_token() {
 			};
 			return number;
 		};
-		static std::string tokens[] = {
-			"+", "-", "*", "/", "**", "mod", "sin", "cos" , "(" , ")",
-		};
-		for (auto& t : tokens)
-			if (std::strncmp(this->input.substr(iter).c_str(), t.c_str(), t.size()) == 0) {
+		for (std::string_view t : this->tokens)
+			if (std::strncmp(this->input.substr(iter).c_str(), t.data(), t.size()) == 0) {
 				this->iter += t.size();
-				return t;
+				return t.data();
 			};
 	};
 	return "";

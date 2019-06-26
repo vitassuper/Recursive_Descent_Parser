@@ -12,6 +12,7 @@ public:
 private:
 	std::string input;
 	unsigned iter;
+	static std::string_view constexpr tokens[] = {	"+", "-", "*", "/", "**", "mod", "sin", "cos" , "(" , ")",	};
 
 	Expression parse_binary_expression(unsigned int min_priority);
 	Expression parse_simple_expression();
