@@ -99,5 +99,6 @@ double Parser::eval(const Expression& e) const {
 };
 
 void Parser::delete_spaces() {
-	this->input.erase(std::remove_if(this->input.begin(), this->input.end(), std::isspace), input.end());
+	this->input.erase(std::remove_if(this->input.begin(), this->input.end(), 
+		[](char _){return std::isspace(static_cast<unsigned char>(_));}), input.end());
 };
