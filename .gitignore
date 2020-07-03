@@ -351,3 +351,6 @@ MigrationBackup/
 
 # New additions
 Recursive_Descent_Parser/
+
+build/
+.vscode/

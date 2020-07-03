@@ -5,14 +5,12 @@
 // perform comprehensive improvements
 int main() {
 	try {
-		Parser math(std::string("2*(3+80575706607)+20/2"));
+		Parser math(std::string("(1+2+3+4)")); // 10
 		std::cout << math.execute();
 	}
 	catch (std::runtime_error& e) {
 		std::cout << e.what();
 	}
-	system("pause");
+	std::cin.get();
 	return 0;
 }
-
-

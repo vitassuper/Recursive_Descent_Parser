@@ -1,6 +1,10 @@
 #pragma once
+#ifndef __EXPRESSION_HPP__
+#define __EXPRESSION_HPP__
+
 #include <string>
 #include <vector>
+
 class Expression {
 public:
 	explicit Expression(std::string token);
@@ -13,3 +17,5 @@ private:
 	std::string token;
 	std::vector<Expression> args;
 };
+
+#endif // !__EXPRESSION_HPP__

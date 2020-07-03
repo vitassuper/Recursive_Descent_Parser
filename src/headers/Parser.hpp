@@ -1,9 +1,15 @@
 #pragma once
-#include "Expression.hpp"
+#ifndef __PARSER_HPP__
+#define __PARSER_HPP__
+
 #include <cctype>
 #include <cmath>
+#include <cstring>
 #include <algorithm>
 #include <stdexcept>
+
+#include "Expression.hpp"
+
 class Parser {
 public:
 	explicit Parser(std::string input);
@@ -21,3 +27,5 @@ private:
 	unsigned char get_priority(std::string& token) const noexcept;
 	double eval(const Expression& e) const;
 };
+
+#endif // !__PARSER_HPP__
